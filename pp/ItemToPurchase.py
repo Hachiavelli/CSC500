@@ -13,7 +13,7 @@ def build_item(num=0):
     This function works with the udf_util input functions to manage and handle building new instances of items.
 
     Parameters:
-        num (int): The number of items to created.
+        num (int): The number of items to create.
 
     Returns:
         new_item: Newly created instance of ItemToPurchase.
