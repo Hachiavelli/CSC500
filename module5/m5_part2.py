@@ -5,12 +5,12 @@
 # Module: 5
 # Created Date: 2025-03-29
 
-entry_prompt = "\nThis program allows the user to enter the number of books purchased this month, and the rewawrd points will be displayed. Enter 'q' to exit the program.\n "
+entry_prompt = "\nThis program allows the user to enter the number of books purchased this month, and the reward points will be displayed. Enter 'q' to exit the program.\n "
 
 
 def get_user_input_int():
     """
-    This function prompts the user to enter a integer amount, or q to exit.
+    This function prompts the user to enter an integer amount, or q to exit.
 
     Parameters:
         None
