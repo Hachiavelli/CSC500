@@ -2,8 +2,9 @@
 
 # Name: Kevin Darling
 # Course: CSC500
-# Module: 4
+# Module: 6
 # Created Date: 2025-04-08
+# Updated Date: 2025-04-26
 
 import udf_utils
 
@@ -21,6 +22,9 @@ def build_item(num=0):
     print(f"Building Item #{num}:")
     new_item = ItemToPurchase()
     new_item.item_name = udf_utils.get_user_input_string(label="the item name")
+    new_item.item_description = udf_utils.get_user_input_string(
+        label="the item description"
+    )
     new_item.item_price = udf_utils.get_user_input_int(label="the item price")
     new_item.item_quantity = udf_utils.get_user_input_int(label="the item quantity")
     new_item.calculate_item_total_cost()
@@ -30,12 +34,18 @@ def build_item(num=0):
 
 class ItemToPurchase:
     def __init__(
-        self, item_name="none", item_price=0, item_quantity=0, item_total_cost=0
+        self,
+        item_name="none",
+        item_price=0,
+        item_quantity=0,
+        item_description="",
+        item_total_cost=0,
     ):
         """Init function with default constructors"""
         self._item_name = item_name
         self._item_price = int(item_price)
         self._item_quantity = int(item_quantity)
+        self._item_description = str(item_description)
         self._item_total_cost = int(item_total_cost)
 
     @property
@@ -52,6 +62,11 @@ class ItemToPurchase:
     def item_quantity(self):
         """Getter function"""
         return self._item_quantity
+
+    @property
+    def item_description(self):
+        """Getter function"""
+        return self._item_description
 
     @property
     def item_total_cost(self):
@@ -78,6 +93,11 @@ class ItemToPurchase:
         if not isinstance(value, int) or value < 0:
             raise ValueError("Item quantity must be a non-negative integer.")
         self._item_quantity = value
+
+    @item_description.setter
+    def item_description(self, value):
+        """Setter function"""
+        self._item_description = value
 
     @item_total_cost.setter
     def item_total_cost(self, value):
@@ -116,3 +136,15 @@ class ItemToPurchase:
         print(
             f"{self.item_name} {self.item_quantity} @ ${self.item_price} = ${self.item_total_cost}"
         )
+
+    def print_item_description(self):
+        """
+        This function prints the item description in the required format per assignment.
+
+        Parameters:
+            self (class object): Class object instance.
+
+        Returns:
+            None
+        """
+        print(f"{self.item_name}: {self.item_description}")

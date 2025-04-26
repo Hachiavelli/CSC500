@@ -2,8 +2,9 @@
 
 # Name: Kevin Darling
 # Course: CSC500
-# Module: 4
+# Module: 6
 # Created Date: 2025-04-08
+# Updated Date: 2025-04-26
 
 
 def get_user_input_int(label=""):
@@ -16,18 +17,15 @@ def get_user_input_int(label=""):
     Returns:
         input_int (int): The int value entered by the user.
     """
-    validate_input = False
-    while not validate_input:
-        input_int = input(f"Please insert {label} (or 'q' to quit): ")
-        if input_int.lower() == "q":
+    while True:
+        user_input = input(f"Please insert {label} (or 'q' to quit): ").strip()
+        if user_input.lower() == "q":
             print("Exiting program... Goodbye!")
             exit()
         try:
-            if not isinstance(input_int, int):
-                validate_input = True
+            return int(user_input)
         except ValueError:
             print("Invalid entry. Please enter a valid integer.\n")
-    return int(input_int)
 
 
 def get_user_input_string(label=""):
@@ -40,11 +38,8 @@ def get_user_input_string(label=""):
     Returns:
         input_str (str): The str value entered by the user.
     """
-    validate_input = False
-    while not validate_input:
-        input_str = input(f"Please insert {label} (or 'q' to quit): ")
-        if input_str.lower() == "q":
-            print("Exiting program... Goodbye!")
-            exit()
-        validate_input = True
+    input_str = input(f"Please insert {label} (or 'q' to quit): ")
+    if input_str.lower() == "q":
+        print("Exiting program... Goodbye!")
+        exit()
     return input_str
